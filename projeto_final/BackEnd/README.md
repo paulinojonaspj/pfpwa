@@ -1,6 +1,4 @@
-# MiniProj3
-Tarefa 4.2: Mini-projeto - desenvolvimento do back-end (PWA)
-
+# Projeto Final
 
 # Comandos para rodar aplicação:
 > npm install
@@ -8,24 +6,29 @@ Tarefa 4.2: Mini-projeto - desenvolvimento do back-end (PWA)
 
 # Rotas para teste API:
 
-    #Sponsor
-        /sponsor         -> Get
-        /sponsor/:id     -> GET, DELETE, UPDATE
+    #User
+        /user         -> Get
+        /user/:id     -> GET, DELETE, UPDATE
 
-        /sponsor         -> POST (formato json):
+        /user         -> POST (formato json):
             {
               "nome": "Duarte Jonas",
-              "nacionalidade": "Angolana",
-              "empresa": "Okutanga"
+              "email": "jonas@gmail.com",
+              "palavrapasse": "jonas123"
             }
 
-    #Expert
-        /expert         -> GET
-        /expert/:id     -> GET, DELETE, UPDATE
+    #Jogo
+        /jogo         -> GET
+        /jogo/:id     -> GET, DELETE, UPDATE
 
-        /expert         -> POST (formato json):
+        /jogo         -> POST (formato json):
             {
-            "nome": "Paulino Jonas",
-            "formacao": "Ciências da Computação",
-            "telefone": "934968956"
+            "jogador1": "Paulino Jonas",
+            "jogador2": "José da Silva",
+            "resultado": "0",
+            "tempo_total": "5",
+            "tempo_jogo": "3",
+            "estado": "Concluído",
+            "user_id": "1"
             }
+   

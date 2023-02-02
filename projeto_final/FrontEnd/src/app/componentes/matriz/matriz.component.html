@@ -1,0 +1,145 @@
+<div class="col-md-12 row matriz">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="row" style="font-size: 8pt">
+      <div class="row">
+        <h6>PROJECTO FINAL - APLICAÇÕES WEB AVANÇADA<br></h6>
+        <span
+          ><b>Jogador X:</b> {{ jogador }} - {{ email }} <br /><b>Jogador O:</b> Computador
+        </span>
+      </div>
+      <div *ngIf="concluido==false" class="row">
+        <span
+          >Tempo restante: 15 Minuto(s) &nbsp; &nbsp; &nbsp;
+          <a href="#">Pedir empate</a> | <a href="#">Resignar</a> | <a href="#" (click)="logout()">Logout</a> </span
+        >
+      </div>
+
+      <div *ngIf="concluido==true" class="row">
+        <span
+          ><b>Jogo Concluído</b> &nbsp; &nbsp; &nbsp;
+          <a href="">Convidar mesmo jogador</a> | <a href="">Convidar outro</a> | <a href="#" (click)="logout()">Logout</a></span
+        >
+      </div>
+    </div>
+    <hr />
+    <h6>Jogador {{ simbolo == "O" ? "O - Computador" : "X - "+jogador }}</h6>
+    <h5 class="msgErro">{{ msgErro }}</h5>
+    <table border="1" class="table">
+      <caption>
+        <b>JOGO DO GALO</b>
+      </caption>
+      <thead>
+        <th colspan="3"></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div
+              [style.color]="
+                casas[0] == '-' ? 'white' : casas[0] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(0)"
+              ngClass="casa"
+            >
+              {{ casas[0] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[1] == '-' ? 'white' : casas[1] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(1)"
+              ngClass="casa"
+            >
+              {{ casas[1] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[2] == '-' ? 'white' : casas[2] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(2)"
+              ngClass="casa"
+            >
+              {{ casas[2] }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div
+              [style.color]="
+                casas[3] == '-' ? 'white' : casas[3] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(3)"
+              ngClass="casa"
+            >
+              {{ casas[3] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[4] == '-' ? 'white' : casas[4] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(4)"
+              ngClass="casa"
+            >
+              {{ casas[4] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[5] == '-' ? 'white' : casas[5] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(5)"
+              ngClass="casa"
+            >
+              {{ casas[5] }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div
+              [style.color]="
+                casas[6] == '-' ? 'white' : casas[6] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(6)"
+              ngClass="casa"
+            >
+              {{ casas[6] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[7] == '-' ? 'white' : casas[7] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(7)"
+              ngClass="casa"
+            >
+              {{ casas[7] }}
+            </div>
+          </td>
+          <td>
+            <div
+              [style.color]="
+                casas[8] == '-' ? 'white' : casas[8] == 'X' ? 'blue' : 'red'
+              "
+              (click)="jogar(8)"
+              ngClass="casa"
+            >
+              {{ casas[8] }}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,211 @@
+<div class="row" style="padding: 5px">
+  <div class="col-md-3">
+    <!-- <img src="assets/fundo.jpeg" style="position: absolute" />-->
+  </div>
+
+  <div class="col-md-6" style="padding: 20px">
+    <div class="input-group input-group-sm mb-3">
+      <img src="assets/logo.png" style="width: 130px; margin-left: 50px" />
+    </div>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <app-mensagem [mensagem]="mensagem" [tipoMensagem]="tipoMensagem"></app-mensagem>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button
+            style="background-color: rgb(154, 255, 161)"
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="false"
+            aria-controls="flush-collapseOne"
+          >
+            Entrar
+          </button>
+        </h2>
+        <div
+          id="flush-collapseOne"
+          class="accordion-collapse collapse"
+          aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample"
+        >
+          <div class="accordion-body">
+            <form
+              (ngSubmit)="submitLogin()"
+              [formGroup]="loginForm"
+              #formLogin="ngForm"
+            >
+              <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" id="inputGroup-sizing-sm"
+                  >Username:
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="email"
+                  formControlName="username"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div
+                *ngIf="username.invalid && formLogin.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="username.errors?.['required']">
+                  O username é obrigatório.
+                </p>
+                <p *ngIf="username.errors?.['email']">username é um email.</p>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" id="inputGroup-sizing-sm"
+                  >Palavra-passe:
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="palavra-passe"
+                  formControlName="pw"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div
+                *ngIf="pw.invalid && formLogin.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="pw.errors?.['required']">
+                  A palavra-passe é obrigatória.
+                </p>
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <button type="submit" class="btn btn-primary">Confirmar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseTwo"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+          >
+            Regista-se
+          </button>
+        </h2>
+
+        <div
+          id="flush-collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="flush-headingTwo"
+          data-bs-parent="#accordionFlushExample"
+        >
+          <div class="accordion-body">
+            <form
+              (ngSubmit)="submitRegistar()"
+              [formGroup]="registarForm"
+              #formRegisto="ngForm"
+            >
+              <div class="input-group input-group-sm mb-3 form-group">
+                <label class="input-group-text" id="inputGroup-sizing-sm"
+                  >Nome:
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nome"
+                  placeholder="nome"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div
+                *ngIf="nome.invalid && formRegisto.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="nome.errors?.['required']">O nome é obrigatório.</p>
+              </div>
+              <div class="input-group input-group-sm mb-3 form-group">
+                <label class="input-group-text" id="inputGroup-sizing-sm"
+                  >Email:
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="email"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+
+              <div
+                *ngIf="email.invalid && formRegisto.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="email.errors?.['required']">O email é obrigatório.</p>
+                <p *ngIf="email.errors?.['email']">
+                  Formato do email inválido.
+                </p>
+              </div>
+              <div class="input-group input-group-sm mb-3 form-group">
+                <label class="input-group-text" id="inputGroup-sizing-sm"
+                  >Palavra-passe:
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Palavra-passe"
+                  formControlName="palavrapasse"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div
+                *ngIf="palavrapasse.invalid && formRegisto.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="palavrapasse.errors?.['required']">
+                  A palavrapasse é obrigatória.
+                </p>
+              </div>
+              <div class="input-group input-group-sm mb-3 form-group">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Confirmar Palavra-passe:
+                </span>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="confirmar palavra-passe"
+                  formControlName="cpalavrapasse"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                />
+              </div>
+              <div
+                *ngIf="cpalavrapasse.invalid && formRegisto.submitted"
+                class="validation-error"
+              >
+                <p *ngIf="cpalavrapasse.errors?.['required']">
+                  A confirmação da palavrapasse é obrigatória.
+                </p>
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <button type="submit" class="btn btn-primary">Registar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
